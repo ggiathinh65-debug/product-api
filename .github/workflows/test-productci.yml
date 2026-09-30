@@ -1,0 +1,33 @@
+name: Product CI (simple)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy code về máy ảo
+        uses: actions/checkout@v4
+
+      - name: Cài Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Cài thư viện
+        run: npm ci
+
+      - name: Kiểm tra cú pháp code
+        run: |
+          node --check src/index.js
+          node --check src/models/Product.js
+          node --check src/routes/products.js
+
+      - name: Build Docker image
+        run: docker build -t product-api:ci .
