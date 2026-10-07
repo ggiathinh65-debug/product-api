@@ -62,7 +62,7 @@ jobs:
             fi
             sleep 2
           done
-          echo "API không lên"
+          echo "API không lên được"
           cat api.log
           exit 1
 
