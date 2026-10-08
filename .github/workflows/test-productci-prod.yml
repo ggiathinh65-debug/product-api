@@ -1,4 +1,4 @@
-name: Product CI (production-like)
+name: Product  production-like)
 
 on:
   push:
