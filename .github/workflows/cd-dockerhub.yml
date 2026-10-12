@@ -9,7 +9,7 @@ jobs:
   verify-healthcheck:
     runs-on: ubuntu-latest
     steps:
-      - name: Lấy code về máy tinhs
+      - name: Lấy code về máy tinh
         uses: actions/checkout@v4
 
       - name: Chạy docker compose và chờ healthy
