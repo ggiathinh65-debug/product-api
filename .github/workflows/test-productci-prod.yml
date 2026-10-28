@@ -28,7 +28,7 @@ jobs:
           node-version: 24
           cache: npm
 
-      - name: Cài thư viện
+      - name: Cài thư việnn
         run: npm ci
 
       - name: Kiểm tra cú pháp code

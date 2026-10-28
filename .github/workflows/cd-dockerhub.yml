@@ -28,7 +28,7 @@ jobs:
 
   push-to-dockerhub:
     runs-on: ubuntu-latest
-    needs: verify-healthcheckk
+    needs: verify-healthcheck
     steps:
       - name: Lấy code về máy ảoo
         uses: actions/checkout@v4
