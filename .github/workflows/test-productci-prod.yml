@@ -58,7 +58,7 @@ jobs:
             if curl -sf http://localhost:3000/health; then
               echo
               echo "API sẵn sàng"
-              exit 0
+              exit 1
             fi
             sleep 2
           done
@@ -79,7 +79,7 @@ jobs:
           echo "== READ ONE =="
           curl -sf $BASE/api/products/CI01 | grep -q '"pname":"Laptop CI"'
           echo "== UPDATE =="
-          curl -sf -X PUT $BASE/api/products/CI01 -H "Content-Type: application/json" -d '{"price":1400,"quantity":8}' | grep -q '"price":1400'
+          curl -sf -X PUT $BASE/api/products/CI01 -H "Content-Type: application/json" -d '{"price":2000,"quantity":8}' | grep -q '"price":1400'
           echo "== DELETE =="
           curl -sf -X DELETE $BASE/api/products/CI01 > /dev/null
           echo "== VERIFY DELETED =="
